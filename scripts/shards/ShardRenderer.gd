@@ -14,7 +14,7 @@ func _ready() -> void:
         add_child(multimesh_instance)
     _multimesh = MultiMesh.new()
     _multimesh.transform_format = MultiMesh.TRANSFORM_2D
-    _multimesh.color_format = MultiMesh.COLOR_8BIT
+    _multimesh.color_format = MultiMesh.COLOR_FLOAT
     _multimesh.instance_count = 0
     _multimesh.mesh = _build_circle_mesh()
     multimesh_instance.multimesh = _multimesh
