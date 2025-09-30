@@ -10,7 +10,7 @@ func setup(world_ref: Node) -> void:
 func get_aabb() -> Rect2:
     var rect_shape := RectangleShape2D.new()
     for shape in get_shape_owners():
-        var owner_shape: Shape2D = get_shape_owner_shape(shape, 0)
+        var owner_shape: Shape2D = shape_owner_get_shape(shape, 0)
         if owner_shape is RectangleShape2D:
             rect_shape = owner_shape
             break
