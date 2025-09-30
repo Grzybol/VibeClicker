@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "economy": {
+    "starting_shiny": 25,
+    "prestige_threshold_base": 50000,
+    "prestige_threshold_growth": 1.35,
+    "fluxium_per_prestige": 5,
+    "fluxium_growth": 0.2,
+    "stash_efficiency": 1.0
+  },
+  "spawns": {
+    "shards_per_hit": 18,
+    "spawn_speed_min": 120.0,
+    "spawn_speed_max": 260.0,
+    "spawn_angle_center": -1.2,
+    "spawn_angle_spread": 1.8
+  },
+  "physics": {
+    "gravity": 420.0,
+    "linear_damp": 0.05,
+    "floor_restitution": 0.35,
+    "wall_restitution": 0.5,
+    "friction": 0.01,
+    "max_velocity": 720.0,
+    "shard_radius": 6.0,
+    "arena_bounds": [ -420.0, -240.0, 420.0, 360.0 ]
+  },
+  "collectors": {
+    "base_speed": 180.0,
+    "carry_capacity": 6,
+    "pickup_radius": 32.0,
+    "retarget_interval": 0.35,
+    "deposit_time": 0.2
+  },
+  "strikers": {
+    "base_damage": 1.0,
+    "attack_speed": 0.9,
+    "spread": 0.6,
+    "sector_bias": 0.15
+  },
+  "buildings": {
+    "fan": {
+      "cost": 150,
+      "force": 340.0,
+      "range": 220.0,
+      "cone_angle": 1.0
+    },
+    "magnet": {
+      "cost": 200,
+      "radius": 200.0,
+      "force": 420.0
+    },
+    "bumper": {
+      "cost": 120,
+      "restitution": 0.8,
+      "width": 80.0
+    },
+    "catapult": {
+      "cost": 180,
+      "impulse": [0.0, -320.0],
+      "cooldown": 1.2
+    }
+  },
+  "upgrades": {
+    "striker_speed": { "base_cost": 50, "growth": 1.25, "bonus": 0.08 },
+    "collector_speed": { "base_cost": 40, "growth": 1.22, "bonus": 0.1 },
+    "shard_value": { "base_cost": 75, "growth": 1.3, "bonus": 0.12 }
+  },
+  "talents": {
+    "grid": [
+      [{"id": "t_kinetic", "cost": 3, "desc": "Boost shard launch speed."}, {"id": "t_banks", "cost": 4, "desc": "Improve stash intake."}, {"id": "t_runners", "cost": 6, "desc": "Collectors move faster."}],
+      [{"id": "t_magnets", "cost": 7, "desc": "Magnets pull harder."}, {"id": "t_fans", "cost": 5, "desc": "Fans widen cone."}, {"id": "t_buffer", "cost": 8, "desc": "Shard limit grows."}]
+    ],
+    "links": [
+      ["t_kinetic", "t_magnets"],
+      ["t_banks", "t_fans"],
+      ["t_runners", "t_buffer"]
+    ]
+  },
+  "status_effects": {
+    "wealth_surge": { "duration": 15.0, "cooldown": 90.0, "multiplier": 1.5 },
+    "slow_time": { "duration": 10.0, "cooldown": 120.0, "multiplier": 0.6 },
+    "global_attract": { "duration": 12.0, "cooldown": 110.0, "multiplier": 260.0 }
+  }
+}
