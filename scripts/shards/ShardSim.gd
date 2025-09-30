@@ -21,7 +21,7 @@ var states: PackedInt32Array = PackedInt32Array()
 var carried_by: PackedInt32Array = PackedInt32Array()
 
 var _active_count: int = 0
-var _free_indices: PackedInt32Array = PackedInt32Array()
+var _free_indices: Array[int] = []
 var _rng := RandomNumberGenerator.new()
 var _spatial_hash: SpatialHash = SpatialHash.new()
 var _hash_indices: Array[int] = []
@@ -52,7 +52,7 @@ func clear() -> void:
     states = PackedInt32Array()
     carried_by = PackedInt32Array()
     _active_count = 0
-    _free_indices = PackedInt32Array()
+    _free_indices = []
     _spatial_hash.clear()
     _catapult_cooldowns.clear()
 
