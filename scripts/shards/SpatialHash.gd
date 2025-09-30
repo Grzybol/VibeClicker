@@ -12,10 +12,12 @@ func _key_from_vec(pos: Vector2) -> int:
 
 func insert(index: int, pos: Vector2) -> void:
     var key: int = _key_from_vec(pos)
-    var cell := _cells.get(key)
+    var cell: Array[int] = _cells.get(key, null)
     if cell == null:
-        cell = []
+        cell = [] as Array[int]
         _cells[key] = cell
+    else:
+        cell = cell as Array[int]
     cell.append(index)
 
 func query(pos: Vector2, radius: float, out_indices: Array[int]) -> void:
@@ -27,8 +29,9 @@ func query(pos: Vector2, radius: float, out_indices: Array[int]) -> void:
     for cx in range(min_cell_x, max_cell_x + 1):
         for cy in range(min_cell_y, max_cell_y + 1):
             var key: int = cx << 32 | (cy & 0xffffffff)
-            var cell := _cells.get(key)
+            var cell: Array[int] = _cells.get(key, null)
             if cell != null:
+                cell = cell as Array[int]
                 for i in cell:
                     out_indices.append(i)
 
